@@ -66,10 +66,6 @@ function Vs(props) {
           value={props.text}
         />
       </div>
-      <h1>
-        <br></br>
-        VS
-      </h1>
       <div>
         <Field2
           placeholder="DC PLAYER NAME"

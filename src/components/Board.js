@@ -4,26 +4,6 @@ import BoardSquare from "./BoardSquare";
 export default function Board({ board, turn }) {
   const [currBoard, setCurrBoard] = useState([]);
 
-  const audioTune = new Audio("<YOUR_AUDIO_FILE_PATH.mp3>");
-
-  // variable to play audio in loop
-  const [playInLoop, setPlayInLoop] = useState(false);
-
-  // load audio file on component load
-  useEffect(() => {
-    audioTune.load();
-  }, []);
-
-  // set the loop of audio tune
-  useEffect(() => {
-    audioTune.loop = playInLoop;
-  }, [playInLoop]);
-
-  // play audio sound
-  const playSound = () => {
-    audioTune.play();
-  };
-
   useEffect(() => {
     setCurrBoard(turn === "w" ? board.flat() : board.flat().reverse());
   }, [board, turn]);

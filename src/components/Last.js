@@ -3,6 +3,8 @@ import "../App.css";
 import { gameSubject, initGame, resetGame } from "./Game";
 import Board from "./Board";
 import styled from "styled-components";
+import Audio from "../audio/marvel.mp3";
+import { Howl } from "howler";
 
 const Button = styled.button`
   background-color: cornflowerblue;
@@ -46,7 +48,13 @@ function StartGame(props) {
       </div>
     );
   };
-
+  var sound = new Howl({
+    src: [Audio],
+    autoplay: true,
+    loop: true,
+    volume: 0.5,
+    onend: function () {},
+  });
   return (
     <div className="container">
       {isGameOver && (
@@ -57,7 +65,7 @@ function StartGame(props) {
       )}
 
       <h1 className="Details">
-        <Button onClick={resetGame}>NEW GAME</Button>
+        <Button onClick={(sound, resetGame)}>NEW GAME</Button>
       </h1>
 
       <div className="board-container">
