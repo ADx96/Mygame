@@ -2,6 +2,7 @@ import React from "react";
 import img1 from "../images/vs.jpg";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+
 const Button = styled.button`
   width: 10%;
   background-color: #000000;
@@ -30,12 +31,22 @@ const Title = styled.h1`
 `;
 
 const MainImage = styled.img`
-  width: 40%;
+  width: 50%;
 `;
 const Field = styled.input`
   width: 30%;
   padding: 12px 30px;
-  margin-top: 5%;
+  margin-top: 4%;
+  display: inline-block;
+  text-align: center;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+`;
+const Field2 = styled.input`
+  width: 30%;
+  padding: 12px 30px;
+  margin-top: 2%;
   display: inline-block;
   text-align: center;
   border: 1px solid #ccc;
@@ -43,19 +54,28 @@ const Field = styled.input`
   box-sizing: border-box;
 `;
 
-function Vs() {
+function Vs(props) {
   return (
     <Wrapper>
       <Title>MARVEL VS DC CHESS GAME </Title>
       <MainImage src={img1} alt="Cover" />
       <div>
-        <Field placeholder="MARVEL PLAYER NAME" />
+        <Field
+          placeholder="MARVEL PLAYER NAME"
+          onChange={(e) => props.setText(e.target.value)}
+          value={props.text}
+        />
       </div>
-      <h>
-        <br></br>VS
-      </h>
+      <h1>
+        <br></br>
+        VS
+      </h1>
       <div>
-        <Field placeholder="DC PLAYER NAME" />
+        <Field2
+          placeholder="DC PLAYER NAME"
+          onChange={(e) => props.setText2(e.target.value)}
+          value={props.text2}
+        />
       </div>
       <Link to={`/StartGame/`}>
         <Button>Submit</Button>

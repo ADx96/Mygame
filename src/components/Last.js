@@ -19,7 +19,7 @@ const Button = styled.button`
   transition-duration: 01s;
 `;
 
-function StartGame() {
+function StartGame(props) {
   const [board, setBoard] = useState([]);
   const [isGameOver, setIsGameOver] = useState();
   const [result, setResult] = useState();
@@ -38,8 +38,11 @@ function StartGame() {
   const Info = (props) => {
     return (
       <div className="output">
-        <h1> Marvel :{props.name1}</h1>
-        <h1> DC :{props.name2}</h1>
+        <h1> Marvel :{props.text}</h1>
+        <br></br>
+        <h2>VS</h2>
+        <br></br>
+        <h1> DC :{props.text2}</h1>
       </div>
     );
   };
@@ -52,7 +55,6 @@ function StartGame() {
           <Button onClick={resetGame}>NEW GAME</Button>
         </h1>
       )}
-      <Info />
 
       <h1 className="Details">
         <Button onClick={resetGame}>NEW GAME</Button>
@@ -62,6 +64,7 @@ function StartGame() {
         <Board board={board} turn={turn} />
         {result && <p className="Details">{result}</p>}
       </div>
+      <Info text={props.text} text2={props.text2} />
     </div>
   );
 }

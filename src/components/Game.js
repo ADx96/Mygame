@@ -1,15 +1,29 @@
 import * as Chess from "chess.js";
 import { BehaviorSubject } from "rxjs";
 
-const chess = new Chess();
+let chess = new Chess();
 
 export const gameSubject = new BehaviorSubject();
 
 export function initGame() {
-  const savedGame = localStorage.getItem("savedGame");
-  if (savedGame) {
-    chess.load(savedGame);
-  }
+  chess.put({ type: "n", color: "b" }, "a7");
+  chess.put({ type: "q", color: "b" }, "b7");
+  chess.put({ type: "n", color: "b" }, "c7");
+  chess.put({ type: "p", color: "b" }, "e7");
+  chess.put({ type: "q", color: "b" }, "d7");
+  chess.put({ type: "p", color: "b" }, "f7");
+  chess.put({ type: "b", color: "b" }, "g7");
+  chess.put({ type: "p", color: "b" }, "h7");
+
+  chess.put({ type: "n", color: "w" }, "a2");
+  chess.put({ type: "b", color: "w" }, "b2");
+  chess.put({ type: "q", color: "w" }, "c2");
+  chess.put({ type: "k", color: "w" }, "e2");
+  chess.put({ type: "p", color: "w" }, "d2");
+  chess.put({ type: "k", color: "w" }, "f2");
+  chess.put({ type: "n", color: "w" }, "g2");
+  chess.put({ type: "b", color: "w" }, "h2");
+
   updateGame();
 }
 export function header() {
@@ -18,6 +32,24 @@ export function header() {
 
 export function resetGame() {
   chess.reset();
+  chess.put({ type: "n", color: "b" }, "a7");
+  chess.put({ type: "q", color: "b" }, "b7");
+  chess.put({ type: "n", color: "b" }, "c7");
+  chess.put({ type: "p", color: "b" }, "e7");
+  chess.put({ type: "q", color: "b" }, "d7");
+  chess.put({ type: "p", color: "b" }, "f7");
+  chess.put({ type: "b", color: "b" }, "g7");
+  chess.put({ type: "p", color: "b" }, "h7");
+
+  chess.put({ type: "n", color: "w" }, "a2");
+  chess.put({ type: "b", color: "w" }, "b2");
+  chess.put({ type: "q", color: "w" }, "c2");
+  chess.put({ type: "k", color: "w" }, "e2");
+  chess.put({ type: "p", color: "w" }, "d2");
+  chess.put({ type: "k", color: "w" }, "f2");
+  chess.put({ type: "n", color: "w" }, "g2");
+  chess.put({ type: "b", color: "w" }, "h2");
+
   updateGame();
 }
 
