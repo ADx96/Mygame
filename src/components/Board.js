@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import BoardSquare from "./BoardSquare";
-import React, { useEffect, useState } from "react";
 
 export default function Board({ board, turn }) {
   const [currBoard, setCurrBoard] = useState([]);
